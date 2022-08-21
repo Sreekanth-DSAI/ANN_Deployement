@@ -8,12 +8,12 @@ import base64
 app = Flask(__name__)
 
 # Load prebuilt model
-model = keras.models.load_model('C:/Users/dell/Desktop/Data2/ANN_MLP/App/digit_model.json')
+model = keras.models.load_model('digit_model.json')
 
 # Handle GET request
 @app.route('/', methods=['GET'])
 def drawing():
-    return render_template('C:\\Users\\dell\\Desktop\\Data2\\ANN_MLP\\drawing.html')
+    return render_template('drawing.html')
 
 # Handle POST request
 @app.route('/', methods=['POST'])
@@ -38,6 +38,6 @@ def canvas():
     try:
         prediction = np.argmax(model.predict(img))
         print(f"Prediction Result : {str(prediction)}")
-        return render_template('C:\\Users\\dell\\Desktop\\Data2\\ANN_MLP\\drawing.html', response=str(prediction), canvasdata=canvasdata, success=True)
+        return render_template('drawing.html', response=str(prediction), canvasdata=canvasdata, success=True)
     except Exception as e:
-        return render_template('C:\\Users\\dell\\Desktop\\Data2\\ANN_MLP\\drawing.html', response=str(e), canvasdata=canvasdata)
+        return render_template('drawing.html', response=str(e), canvasdata=canvasdata)
