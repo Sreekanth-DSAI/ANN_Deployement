@@ -8,7 +8,7 @@ import base64
 app = Flask(__name__)
 
 # Load prebuilt model
-model = keras.models.load_model('C:/Users/dell/Desktop/Data2/ANN_MLP/mnist_classification.h5')
+model = keras.models.load_model('C:/Users/dell/Desktop/Data2/ANN_MLP/App/mnist_classification.h5')
 
 # Handle GET request
 @app.route('/', methods=['GET'])
